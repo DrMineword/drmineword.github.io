@@ -30,7 +30,7 @@
 </head>
 <body>
 
-    <h1>GitHub Clock GIF Uploader</h1>
+    <h1>GitHub Clock GIF Uploader mk3</h1>
 
     <!-- Input for GitHub API Token -->
     <input type="text" id="apiToken" placeholder="Enter GitHub API Token" />
@@ -105,8 +105,8 @@
 
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
-        canvas.width = 300;  // Increased canvas width
-        canvas.height = 150;  // Increased canvas height
+        canvas.width = 600;  // Increased canvas width (2x bigger)
+        canvas.height = 300;  // Increased canvas height (2x bigger)
 
         // Load custom font from base64
         const loadFont = () => {
@@ -116,10 +116,16 @@
 
         loadFont().then((font) => {
             document.fonts.add(font);
-            ctx.font = '60px CustomFont';  // Medium size font
+            ctx.font = '120px CustomFont';  // 2x bigger font size (120px)
             ctx.fillStyle = '#FF5C00';  // Color for the text
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
+
+            // Make the text bolder by adding text shadow
+            ctx.shadowColor = "#FF5C00";  // Same color for the shadow
+            ctx.shadowBlur = 10;  // Blur effect to create the thick border
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
 
             const drawClock = (showColon) => {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);  // Clear canvas before redrawing
@@ -157,15 +163,6 @@ function blobToBase64(blob) {
     });
 }
 
-        // Convert GIF Blob to Base64
-        function blobToBase64(blob) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onloadend = () => resolve(reader.result.split(',')[1]);
-                reader.onerror = reject;
-                reader.readAsDataURL(blob);
-            });
-        }
 
         // Function to upload all the GIFs
         async function uploadGIFs() {
