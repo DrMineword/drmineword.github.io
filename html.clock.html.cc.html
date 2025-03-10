@@ -30,7 +30,7 @@
 </head>
 <body>
 
-    <h1>GitHub Clock GIF Uploader mk3.5</h1>
+    <h1>GitHub Clock GIF Uploader mk3.5 resume 1</h1>
 
     <!-- Input for GitHub API Token -->
     <input type="text" id="apiToken" placeholder="Enter GitHub API Token" />
@@ -55,7 +55,7 @@
         // GitHub repository and directory setup
         const GITHUB_API_URL = 'https://api.github.com/repos/DrMineword/databasd_and_randomthings_wscd/contents/clock/digita/gifs/lightorange/';
         const MAX_RETRIES = 3;
-        const GIF_DELAY = 1000; // 1 second delay for each gif upload
+        const GIF_DELAY = 750; // 1 second delay for each gif upload
 
         // Function to write messages to the console area in the HTML
         function logMessage(message) {
@@ -162,7 +162,7 @@
             }
 
             let totalFiles = 0;
-            let uploadedFiles = 0;
+            let uploadedFiles = 725;
 
             // Loop through all hours and minutes
             for (let hour = 0; hour < 24; hour++) {
