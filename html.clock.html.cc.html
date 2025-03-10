@@ -30,7 +30,7 @@
 </head>
 <body>
 
-    <h1>GitHub Clock GIF Uploader mk3.1</h1>
+    <h1>GitHub Clock GIF Uploader mk3.5</h1>
 
     <!-- Input for GitHub API Token -->
     <input type="text" id="apiToken" placeholder="Enter GitHub API Token" />
@@ -96,13 +96,8 @@
         }
 
         // Function to generate GIF for a given hour and minute
-        function generateGIF(hour, minute) {
+       function generateGIF(hour, minute) {
     return new Promise((resolve, reject) => {
-        const gif = new GIF({
-            workers: 2,
-            quality: 10
-        });
-
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = 600;  // Canvas size (2x bigger)
@@ -132,25 +127,22 @@
                 ctx.shadowOffsetX = 3;  // Horizontal offset of the shadow
                 ctx.shadowOffsetY = 3;  // Vertical offset of the shadow
 
-                const drawClock = (showColon) => {
+                const drawClock = () => {
                     ctx.clearRect(0, 0, canvas.width, canvas.height);  // Clear canvas before redrawing
-                    const colon = showColon ? ':' : ' ';
-                    const timeText = `${hour.toString().padStart(2, '0')}${colon}${minute.toString().padStart(2, '0')}`;
+                    const timeText = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
                     ctx.fillText(timeText, canvas.width / 2, canvas.height / 2);  // Center the text both ways
                 };
 
-                // Add frames for the GIF (blink the colon)
-                for (let i = 0; i < 6; i++) {
-                    drawClock(i % 2 === 0);  // Blink the colon
-                    gif.addFrame(canvas, { delay: 750 });
-                }
+                drawClock();  // Draw static clock with centered text
 
-                gif.on('finished', function (blob) {
-                    const gifBase64 = blobToBase64(blob);
-                    resolve(gifBase64);
+                canvas.toBlob(function(blob) {
+                    const reader = new FileReader();
+                    reader.onloadend = function () {
+                        resolve(reader.result.split(',')[1]);  // Get base64 string of the image
+                    };
+                    reader.readAsDataURL(blob);
                 });
 
-                gif.render();
             }).catch(err => {
                 reject(err);
             });
@@ -159,18 +151,6 @@
         });
     });
 }
-
-function blobToBase64(blob) {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onloadend = function () {
-            resolve(reader.result.split(',')[1]);  // Get base64 string
-        };
-        reader.onerror = reject;
-        reader.readAsDataURL(blob);
-    });
-}
-
 
 
         // Function to upload all the GIFs
