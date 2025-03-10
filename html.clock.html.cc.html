@@ -30,7 +30,7 @@
 </head>
 <body>
 
-    <h1>GitHub Clock GIF Uploader mk3.5 resume 1</h1>
+    <h1>GitHub Clock GIF Uploader mk3.5 resume 2</h1>
 
     <!-- Input for GitHub API Token -->
     <input type="text" id="apiToken" placeholder="Enter GitHub API Token" />
@@ -162,11 +162,11 @@
             }
 
             let totalFiles = 0;
-            let uploadedFiles = 725;
+            let uploadedFiles = 0;
 
             // Loop through all hours and minutes
-            for (let hour = 0; hour < 24; hour++) {
-                for (let minute = 0; minute < 60; minute++) {
+            for (let hour = 12; hour < 24; hour++) {
+                for (let minute = 0; minute < 61; minute++) {
                     const fileName = `${String(hour).padStart(2, '0')}/${String(minute).padStart(2, '0')}.gif`;
                     logMessage(`Generating GIF for ${fileName}...`);
 
