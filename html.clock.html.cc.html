@@ -30,7 +30,7 @@
 </head>
 <body>
 
-    <h1>GitHub Clock GIF Uploader mk3.5 resume 3</h1>
+    <h1>GitHub Clock GIF Uploader pink</h1>
 
     <!-- Input for GitHub API Token -->
     <input type="text" id="apiToken" placeholder="Enter GitHub API Token" />
@@ -53,7 +53,7 @@
 
     <script>
         // GitHub repository and directory setup
-        const GITHUB_API_URL = 'https://api.github.com/repos/DrMineword/databasd_and_randomthings_wscd/contents/clock/digita/gifs/lightorange/';
+        const GITHUB_API_URL = 'https://api.github.com/repos/DrMineword/databasd_and_randomthings_wscd/contents/clock/digita/gifs/pink_not_femboy/';
         const MAX_RETRIES = 3;
         const GIF_DELAY = 750; // 1 second delay for each gif upload
 
@@ -117,7 +117,7 @@
             font.load().then(() => {
                 document.fonts.add(font);
                 ctx.font = '120px CustomFont';  // Font size set to 120px
-                ctx.fillStyle = '#FF5C00';  // Font color
+                ctx.fillStyle = '#FF8DA1';  // Font color
                 ctx.textAlign = 'center';  // Horizontally center text
                 ctx.textBaseline = 'middle';  // Vertically center text
 
@@ -165,8 +165,8 @@
             let uploadedFiles = 0;
 
             // Loop through all hours and minutes
-            for (let hour = 24; hour < 25; hour++) {
-                for (let minute = 0; minute < 61; minute++) {
+            for (let hour = 0; hour < 25; hour++) {
+                for (let minute = 0; minute < 60; minute++) {
                     const fileName = `${String(hour).padStart(2, '0')}/${String(minute).padStart(2, '0')}.gif`;
                     logMessage(`Generating GIF for ${fileName}...`);
 
