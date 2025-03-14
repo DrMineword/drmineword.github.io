@@ -68,7 +68,8 @@
     "run": {
         "true": "{flags_to_badges.response.math.ok}",
         "false": "public flags is not int",
-        "go0":"{\flags_to_badges.response.math.next.",
-        "go1":".var}"
+        "go0":"{flags_to_badges.response.math.next.",
+        "go1":".var}",
+        "go_var_arr":["{user"]
     }
 }
