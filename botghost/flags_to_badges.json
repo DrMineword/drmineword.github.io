@@ -1,7 +1,4 @@
 {
-    "start": {
-        "uniqevarname": "public_flags"
-    },
     "initiate": "{flags_to_badges.response.run.{isNumber({flags_to_badges.response.local.public_flags})}}",
     "local": {
         "public_flags": "{public_flags}",
@@ -62,14 +59,15 @@
     },
     "math": {
         "prefix": "{solve_equation[floor(({public_flags} /",
-        "sufix": ") % 2)]}]}",
-        "ok":"{printAllValues({flags_to_badges.response.run.go_var_arr}),[$value]}"
+        "sufix": ") % 2)]}]}"
     },
     "run": {
-        "true": "{flags_to_badges.response.math.ok}",
+        "true": "{flags_to_badges.response.run.ok}",
         "false": "public flags is not int",
         "go0":"{flags_to_badges.response.math.next.",
         "go1":".var}",
-        "go_var_arr":["{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[0]}{flags_to_badges.response.run.go1}"]
+        "go_var_arr":["{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[0]}{flags_to_badges.response.run.go1}"],
+        "ok":"{printAllValues({flags_to_badges.response.run.go_var_arr}),[$value]}"
+   
     }
 }
