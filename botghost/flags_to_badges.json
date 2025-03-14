@@ -1,6 +1,7 @@
 {
   "start": {"uniqevarname":"public_flags"},
-  "local":{"public_flags":"{public_flags}","null":""}
+  "initiate":"{flags_to_badges.response.run.{isNumber(flags_to_badges.response.local.public_flags})}}",
+  "local":{"public_flags":"{public_flags}","null":""},
   "warehouse_array": {
   "array_bits": [
     1,
@@ -55,5 +56,8 @@
   ]
 },
   "math":{"prefix":"{solve_equation[floor(({public_flags} /",
-  "sufix":") % 2)]}]}"}
+  "sufix":") % 2)]}]}"},
+  "run"{
+  "true":"{flags_to_badges.response.math.ok}",
+    "false":"public flags is not int"}
 }
