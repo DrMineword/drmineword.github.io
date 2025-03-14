@@ -59,7 +59,8 @@
     },
     "math": {
         "prefix": "{solve_equation[floor(({public_flags} /",
-        "sufix": ") % 2)]}]}"
+        "sufix": ") % 2)]}]}",
+        "next":[{"var":"{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[0]}]),[{flags_to_badges.response.math.prefix}{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[0]}{flags_to_badges.response.math.sufix}]}"}]
     },
     "run": {
         "true": "{flags_to_badges.response.run.ok}",
