@@ -2,7 +2,7 @@
     "initiate": "{flags_to_badges.response.run.{isNumber({flags_to_badges.response.local.public_flags})}}",
     "local": {
         "public_flags": "{public_flags}",
-        "null": ""
+        "null": "null for {public_flags}"
     },
     "warehouse_array": {
         "array_bits": [
