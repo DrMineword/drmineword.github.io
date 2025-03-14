@@ -101,7 +101,24 @@
                 "desc": "Active Developer",
                 "id": "ACTIVE_DEVELOPER"
             }
-        }
+        },
+  "badges2": {
+    "STAFF": "{badge_staff}{separate}",
+    "PARTNER": "{badge_partner}{separate}",
+    "HYPESQUAD": "{badge_hypesquad}{separate}",
+    "BUG_HUNTER_LEVEL_1": "{badge_bug_hunter_1}{separate}",
+    "HYPESQUAD_ONLINE_HOUSE_1": "{badge_hypesquad_house_1}{separate}",
+    "HYPESQUAD_ONLINE_HOUSE_2": "{badge_hypesquad_house_2}{separate}",
+    "HYPESQUAD_ONLINE_HOUSE_3": "{badge_hypesquad_house_3}{separate}",
+    "PREMIUM_EARLY_SUPPORTER": "{badge_premium_early_supporter}{separate}",
+    "TEAM_PSEUDO_USER": "{badge_team_pseudo_user}{separate}",
+    "BUG_HUNTER_LEVEL_2": "{badge_bug_hunter_2}{separate}",
+    "VERIFIED_BOT": "{badge_verified_bot}{separate}",
+    "VERIFIED_DEVELOPER": "{badge_verified_developer}{separate}",
+    "CERTIFIED_MODERATOR": "{badge_certified_moderator}{separate}",
+    "BOT_HTTP_INTERACTIONS": "{badge_bot_http_interactions}{separate}",
+    "ACTIVE_DEVELOPER": "{badge_active_developer}{separate}"
+  }
     },
-    "badgevars": "temp."
+    "badgevars": "{flags_to_badges.response.db.badges2"
 }
