@@ -64,26 +64,6 @@
     "run": {
         "true": "{flags_to_badges.response.run.ok}",
         "false": "public flags is not int",
-        "go0":"{flags_to_badges.response.math.next.",
-        "go1":".var}",
-        "go_var_arr":[
-  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[0]}{flags_to_badges.response.run.go1}",
-  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[1]}{flags_to_badges.response.run.go1}",
-  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[2]}{flags_to_badges.response.run.go1}",
-  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[3]}{flags_to_badges.response.run.go1}",
-  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[4]}{flags_to_badges.response.run.go1}",
-  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[5]}{flags_to_badges.response.run.go1}",
-  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[6]}{flags_to_badges.response.run.go1}",
-  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[7]}{flags_to_badges.response.run.go1}",
-  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[8]}{flags_to_badges.response.run.go1}",
-  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[9]}{flags_to_badges.response.run.go1}",
-  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[10]}{flags_to_badges.response.run.go1}",
-  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[11]}{flags_to_badges.response.run.go1}",
-  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[12]}{flags_to_badges.response.run.go1}",
-  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[13]}{flags_to_badges.response.run.go1}",
-  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[14]}{flags_to_badges.response.run.go1}"
-        ],
-        "ok":"{printAllValues({flags_to_badges.response.run.go_var_arr}),[$value]}"
-   
+        "ok":"{flags_to_badges.response.math.next.0.var}{flags_to_badges.response.math.next.1.var}{flags_to_badges.response.math.next.2.var}{flags_to_badges.response.math.next.3.var}{flags_to_badges.response.math.next.4.var}{flags_to_badges.response.math.next.5.var}{flags_to_badges.response.math.next.6.var}{flags_to_badges.response.math.next.7.var}{flags_to_badges.response.math.next.8.var}{flags_to_badges.response.math.next.9.var}{flags_to_badges.response.math.next.10.var}{flags_to_badges.response.math.next.11.var}{flags_to_badges.response.math.next.12.var}{flags_to_badges.response.math.next.13.var}{flags_to_badges.response.math.next.14.var}"
     }
 }
