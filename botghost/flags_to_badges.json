@@ -70,6 +70,6 @@
         "false": "public flags is not int",
         "go0":"{flags_to_badges.response.math.next.",
         "go1":".var}",
-        "go_var_arr":["{user"]
+        "go_var_arr":["{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[0]}{flags_to_badges.response.run.go1}"]
     }
 }
