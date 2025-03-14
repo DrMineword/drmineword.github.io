@@ -66,7 +66,23 @@
         "false": "public flags is not int",
         "go0":"{flags_to_badges.response.math.next.",
         "go1":".var}",
-        "go_var_arr":["{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[0]}{flags_to_badges.response.run.go1}"],
+        "go_var_arr":[
+  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[0]}{flags_to_badges.response.run.go1}",
+  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[1]}{flags_to_badges.response.run.go1}",
+  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[2]}{flags_to_badges.response.run.go1}",
+  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[3]}{flags_to_badges.response.run.go1}",
+  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[4]}{flags_to_badges.response.run.go1}",
+  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[5]}{flags_to_badges.response.run.go1}",
+  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[6]}{flags_to_badges.response.run.go1}",
+  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[7]}{flags_to_badges.response.run.go1}",
+  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[8]}{flags_to_badges.response.run.go1}",
+  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[9]}{flags_to_badges.response.run.go1}",
+  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[10]}{flags_to_badges.response.run.go1}",
+  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[11]}{flags_to_badges.response.run.go1}",
+  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[12]}{flags_to_badges.response.run.go1}",
+  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[13]}{flags_to_badges.response.run.go1}",
+  "{flags_to_badges.response.run.go0}{valueAtPosition({flags_to_badges.response.warehouse_array.index_array}),[14]}{flags_to_badges.response.run.go1}"
+        ],
         "ok":"{printAllValues({flags_to_badges.response.run.go_var_arr}),[$value]}"
    
     }
