@@ -1,4 +1,5 @@
 {
+  "warehouse_array": {
   "array_bits": [
     1,
     2,
@@ -32,5 +33,23 @@
     "{flags_to_badges.response.badgevars}.CERTIFIED_MODERATOR",
     "{flags_to_badges.response.badgevars}.BOT_HTTP_INTERACTIONS",
     "{flags_to_badges.response.badgevars}.ACTIVE_DEVELOPER"
+  ],
+  "index_array": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
   ]
+}
 }
