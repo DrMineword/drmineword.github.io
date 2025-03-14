@@ -67,6 +67,6 @@
     "run": {
         "true": "{flags_to_badges.response.run.ok}",
         "false": "public flags is not int",
-        "ok":"{flags_to_badges.response.math.next.0.var}{flags_to_badges.response.math.next.1.var}{flags_to_badges.response.math.next.2.var}{flags_to_badges.response.math.next.3.var}{flags_to_badges.response.math.next.4.var}{flags_to_badges.response.math.next.5.var}{flags_to_badges.response.math.next.6.var}{flags_to_badges.response.math.next.7.var}{flags_to_badges.response.math.next.8.var}{flags_to_badges.response.math.next.9.var}{flags_to_badges.response.math.next.10.var}{flags_to_badges.response.math.next.11.var}{flags_to_badges.response.math.next.12.var}{flags_to_badges.response.math.next.13.var}{flags_to_badges.response.math.next.14.var}"
+        "ok":"[{flags_to_badges.response.math.next.0.var}{flags_to_badges.response.math.next.1.var}{flags_to_badges.response.math.next.2.var}{flags_to_badges.response.math.next.3.var}{flags_to_badges.response.math.next.4.var}{flags_to_badges.response.math.next.5.var}{flags_to_badges.response.math.next.6.var}{flags_to_badges.response.math.next.7.var}{flags_to_badges.response.math.next.8.var}{flags_to_badges.response.math.next.9.var}{flags_to_badges.response.math.next.10.var}{flags_to_badges.response.math.next.11.var}{flags_to_badges.response.math.next.12.var}{flags_to_badges.response.math.next.13.var}{flags_to_badges.response.math.next.14.var}]"
     }
 }
