@@ -52,5 +52,7 @@
     13,
     14
   ]
-}
+},
+  "math":{"prefix":"{solve_equation[floor(({public_flags} /",
+  "sufix":") % 2)]}]}"}
 }
