@@ -1,5 +1,6 @@
 {
   "start": {"uniqevarname":"public_flags"},
+  "local":{"public_flags":"{public_flags}","null":""}
   "warehouse_array": {
   "array_bits": [
     1,
