@@ -4,61 +4,6 @@
         "public_flags": "{public_flags}",
         "null": "null for {public_flags}"
     },
-    "warehouse_array": {
-        "array_bits": [
-            1,
-            2,
-            4,
-            8,
-            64,
-            128,
-            256,
-            512,
-            1024,
-            16384,
-            65536,
-            131072,
-            262144,
-            524288,
-            4194304
-        ],
-        "array_value_name": [
-            "{flags_to_badges.response.badgevars}.STAFF",
-            "{flags_to_badges.response.badgevars}.PARTNER",
-            "{flags_to_badges.response.badgevars}.HYPESQUAD",
-            "{flags_to_badges.response.badgevars}.BUG_HUNTER_LEVEL_1",
-            "{flags_to_badges.response.badgevars}.HYPESQUAD_ONLINE_HOUSE_1",
-            "{flags_to_badges.response.badgevars}.HYPESQUAD_ONLINE_HOUSE_2",
-            "{flags_to_badges.response.badgevars}.HYPESQUAD_ONLINE_HOUSE_3",
-            "{flags_to_badges.response.badgevars}.PREMIUM_EARLY_SUPPORTER",
-            "{flags_to_badges.response.badgevars}.TEAM_PSEUDO_USER",
-            "{flags_to_badges.response.badgevars}.BUG_HUNTER_LEVEL_2",
-            "{flags_to_badges.response.badgevars}.VERIFIED_BOT",
-            "{flags_to_badges.response.badgevars}.VERIFIED_DEVELOPER",
-            "{flags_to_badges.response.badgevars}.CERTIFIED_MODERATOR",
-            "{flags_to_badges.response.badgevars}.BOT_HTTP_INTERACTIONS",
-            "{flags_to_badges.response.badgevars}.ACTIVE_DEVELOPER"
-        ],
-        "index_array": [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11,
-            12,
-            13,
-            14
-        ]
-    },
-    "math": {"execute":"{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[0]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[0]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[1]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[1]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[2]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[2]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[3]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[3]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[4]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[4]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[5]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[5]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[6]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[6]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[7]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[7]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[8]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[8]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[9]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[9]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[10]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[10]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[11]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[11]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[12]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[12]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[13]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[13]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[14]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[14]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[15]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[15]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[16]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[16]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[17]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[17]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[18]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[18]}) % 2)]}]}{valueAtPosition([{flags_to_badges.response.local.null},{valueAtPosition({flags_to_badges.response.warehouse_array.array_value_name}),[19]}]),[{solve_equation[floor(({public_flags} /{valueAtPosition({flags_to_badges.response.warehouse_array.array_bits}),[19]}) % 2)]}]}"
-    },
     "run": {
         "true": "{flags_to_badges.response.run.ok}",
         "false": "public flags is not int",
