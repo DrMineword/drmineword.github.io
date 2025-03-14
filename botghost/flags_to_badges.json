@@ -62,7 +62,8 @@
     },
     "math": {
         "prefix": "{solve_equation[floor(({public_flags} /",
-        "sufix": ") % 2)]}]}"
+        "sufix": ") % 2)]}]}",
+        "ok":"{printAllValues({flags_to_badges.response.warehouse_array.index_array}),[{flags_to_badges.response.run.go0}$value{flags_to_badges.response.run.go1}]}"
     },
     "run": {
         "true": "{flags_to_badges.response.math.ok}",
