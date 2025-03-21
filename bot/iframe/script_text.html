@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Output</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #1e1e1e;
+            color: #00FF00;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .terminal {
+            width: 80%;
+            max-width: 600px;
+            height: 80%;
+            max-height: 400px;
+            background-color: #121212;
+            border-radius: 8px;
+            padding: 20px;
+            overflow-y: auto;
+            border: 2px solid #00FF00;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
+            color: #00FF00;
+            white-space: pre-wrap; /* Ensures that newlines are respected */
+        }
+        .loading {
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+            border-right: 2px solid #00FF00;
+            animation: typing 3s steps(30) 1s 1 normal both, blink 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<center><div class="terminal">
+    <div id="output" class="loading">Loading...</div>
+</div></center>
+
+<script>
+    // Function to get the URL parameter 'file', 'path' or 'speed'
+    function getQueryParam(param, defaultValue) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const value = urlParams.get(param);
+        return value ? value : defaultValue;
+    }
+
+    // Function to handle fetching and executing the script
+    async function executeScript(path) {
+        if (path) {
+            const scriptUrl = `https://raw.githubusercontent.com/DrMineword/Artefact-Boost-Active/refs/heads/main/fonts/remote_upload/standalonerun/files/${path}`;
+            try {
+                const response = await fetch(scriptUrl);
+                if (!response.ok) {
+                    throw new Error('Script not found');
+                }
+                const scriptContent = await response.text();
+                // Dynamically execute the script
+                eval(scriptContent);
+                console.log(`Executed script from: ${scriptUrl}`);
+            } catch (error) {
+                console.error(`Error loading or executing script: ${error.message}`);
+            }
+        }
+    }
+
+    // Function to handle fetching and displaying the file content
+    async function loadFile() {
+        const fileUrl = getQueryParam('file', '');
+        const path = getQueryParam('path', '');
+        const speed = parseFloat(getQueryParam('speed', 3)); // Default speed is 3
+
+        if (!fileUrl) {
+            document.getElementById('output').textContent = "404 Error: File parameter is missing!";
+            document.getElementById('output').classList.remove('loading');
+            document.getElementById('output').classList.add('error');
+            return;
+        }
+
+        // Execute the script if 'path' is provided
+        await executeScript(path);
+
+        try {
+            // Display the loading animation while fetching
+            const response = await fetch(fileUrl);
+            if (!response.ok) {
+                throw new Error('File not found');
+            }
+            const text = await response.text();
+
+            // Split content by lines, so each line can be typed separately
+            const lines = text.split('\n');
+            const outputElement = document.getElementById('output');
+            outputElement.classList.remove('loading'); // Remove loading animation
+            outputElement.textContent = ""; // Clear loading text
+
+            let lineIndex = 0;
+            let charIndex = 0;
+
+            // Function to type each line character by character
+            function typeWriter() {
+                if (lineIndex < lines.length) {
+                    const currentLine = lines[lineIndex];
+
+                    if (charIndex < currentLine.length) {
+                        outputElement.textContent += currentLine.charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typeWriter, 1000 / speed); // Adjust speed between characters
+                    } else {
+                        // When current line is finished, move to next line
+                        outputElement.textContent += '\n'; // Simulate new line
+                        lineIndex++;
+                        charIndex = 0; // Reset charIndex for the next line
+                        setTimeout(typeWriter, 1000 / speed); // Adjust speed between lines
+                    }
+                }
+            }
+            typeWriter(); // Start typing
+
+        } catch (error) {
+            document.getElementById('output').textContent = `404 Error: ${error.message}`;
+            document.getElementById('output').classList.remove('loading');
+            document.getElementById('output').classList.add('error');
+        }
+    }
+
+    // Load the file and execute the script when the page loads
+    window.onload = loadFile;
+</script>
+
+</body>
+</html>
