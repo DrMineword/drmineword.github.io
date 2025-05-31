@@ -121,6 +121,7 @@
         }
 
         log('No matching background found.');
+        setBackground("https://singlecolorimage.com/get/313338/5000x5000.png");
         return null;
     };
 
