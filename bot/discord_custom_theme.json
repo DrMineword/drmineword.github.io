@@ -1,6 +1,13 @@
-{"channels":
-[{"id":"1203357768610746385",
-"image": "https://hsmineword.github.io/api/src/portraits/portrait_YellowStar.png"}],
-"users-standard":{
-"987284796789116949": {"image": null}
+{
+    "channels": [
+        {
+            "id": "1203357768610746385",
+            "image": "https://hsmineword.github.io/api/src/portraits/portrait_YellowStar.png"
+        }
+    ],
+    "users-standard": {
+        "987284796789116949": {
+            "image": null
+        }
+    }
 }
