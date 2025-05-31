@@ -1,15 +1,3 @@
-// ==UserScript==
-// @name         Discord - Custom Background by Config (Fixed localStorage)
-// @namespace    http://tampermonkey.net/
-// @version      1.5
-// @description  Custom background per user or channel with safe localStorage access and repeated logging + proper channel ID parsing from URL path.
-// @author       You
-// @match        https://discord.com/channels/*
-// @grant        unsafeWindow
-// @run-at       document-end
-// @license      MIT
-// ==/UserScript==
-
 (async function () {
     'use strict';
 
