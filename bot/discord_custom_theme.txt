@@ -1,0 +1,149 @@
+// ==UserScript==
+// @name         Discord - Custom Background by Config (Fixed localStorage)
+// @namespace    http://tampermonkey.net/
+// @version      1.5
+// @description  Custom background per user or channel with safe localStorage access and repeated logging + proper channel ID parsing from URL path.
+// @author       You
+// @match        https://discord.com/channels/*
+// @grant        unsafeWindow
+// @run-at       document-end
+// @license      MIT
+// ==/UserScript==
+
+(async function () {
+    'use strict';
+
+    const CONFIG_URL = 'https://drmineword.github.io/bot/discord_custom_theme.json';
+    const log = (...args) => console.log('[drmineword.github.io]:', ...args);
+    const warn = (...args) => console.warn('[drmineword.github.io]: ⚠️', ...args);
+
+    // Repeat log URL for debug
+    setInterval(() => {
+        log('Current URL:', location.href);
+    }, 5000);
+
+    // Wait for main chat UI
+    const waitForChat = () => new Promise(resolve => {
+        const check = () => {
+            const chat = document.querySelector('[class^="chatContent"]');
+            if (chat) {
+                log('Chat area detected.');
+                return resolve();
+            }
+            setTimeout(check, 500);
+        };
+        check();
+    });
+
+    // Get config JSON from URL
+    const fetchConfig = async () => {
+        log('Fetching config from:', CONFIG_URL);
+        try {
+            const res = await fetch(CONFIG_URL);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const json = await res.json();
+            log('Config loaded.');
+            return json;
+        } catch (err) {
+            warn('Fetch failed:', err);
+            return null;
+        }
+    };
+
+    // Get user ID from localStorage (safe)
+    const getUserId = () => {
+        try {
+            const storage = typeof unsafeWindow !== 'undefined' ? unsafeWindow.localStorage : window.localStorage;
+            const id = storage.getItem('user_id_cache');
+            log('User ID:', id);
+            return id;
+        } catch (err) {
+            warn('Could not access localStorage:', err);
+            return null;
+        }
+    };
+
+    // Apply background image
+    const setBackground = (url) => {
+        log('Setting background:', url);
+        const style = document.body.children[0].style;
+        Object.assign(style, {
+            backgroundImage: `url("${url}")`,
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            transitionDuration: '1.5s'
+        });
+
+        for (const el of document.querySelectorAll('*')) {
+            el.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+        }
+
+        try {
+            document.body.children[0].children[3].style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+        } catch (e) {
+            warn('Overlay background tweak failed:', e);
+        }
+    };
+
+    // Determine proper background from config
+    const determineBackground = async () => {
+        const config = await fetchConfig();
+        if (!config) return null;
+
+        const userId = getUserId();
+        const urlParts = location.pathname.split('/');
+        const channelId = urlParts[urlParts.length - 1];
+
+        log('Extracted channel ID:', channelId);
+
+        // Channel-specific background
+        if (Array.isArray(config.channels)) {
+            for (const channel of config.channels) {
+                if (channel.id === channelId && channel.image) {
+                    log('Matched channel background:', channel.id);
+                    return channel.image;
+                }
+            }
+        }
+
+        // User-specific fallback
+        if (config["users-standard"] && userId && config["users-standard"][userId]) {
+            const userEntry = config["users-standard"][userId];
+            if (userEntry.image) {
+                log('Matched user background.');
+                return userEntry.image;
+            } else {
+                log('User found, no image set.');
+            }
+        }
+
+        log('No matching background found.');
+        return null;
+    };
+
+    // Set background once
+    const applyInitial = async () => {
+        try {
+            const url = await determineBackground();
+            if (url) setBackground(url);
+        } catch (err) {
+            warn('Background application failed:', err);
+        }
+    };
+
+    await waitForChat();
+    applyInitial();
+
+    // Detect SPA nav changes
+    let lastHref = location.href;
+    new MutationObserver(async () => {
+        if (location.href !== lastHref) {
+            lastHref = location.href;
+            log('Detected SPA URL change:', lastHref);
+            applyInitial();
+        }
+    }).observe(document.body, { childList: true, subtree: true });
+
+})();
