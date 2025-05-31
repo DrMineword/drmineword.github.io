@@ -87,6 +87,47 @@
             warn('Overlay background tweak failed:', e);
         }
     };
+    
+
+    function clearCustomBackground() {
+    try {
+        const container = document.body.children[0];
+        if (!container) {
+            console.warn('[drmineword.github.io]: No container found to clear background');
+            return;
+        }
+        // Reset background styles
+        Object.assign(container.style, {
+            backgroundImage: '',
+            backgroundAttachment: '',
+            backgroundPosition: '',
+            backgroundSize: '',
+            backgroundRepeat: '',
+            transitionDuration: '',
+        });
+
+        // Reset all elements' backgroundColor if you changed them previously
+        document.querySelectorAll('*').forEach(el => {
+            // Only reset if it was modified by our script
+            // For safety, reset only transparent backgrounds set by script:
+            if (el.style.backgroundColor === 'rgba(0, 0, 0, 0)') {
+                el.style.backgroundColor = '';
+            }
+        });
+
+        // Reset overlay backgroundColor if it was set
+        if (container.children.length > 3) {
+            const overlay = container.children[3];
+            if (overlay.style.backgroundColor === 'rgba(0, 0, 0, 0.7)') {
+                overlay.style.backgroundColor = '';
+            }
+        }
+
+        console.log('[drmineword.github.io]: Custom background cleared');
+    } catch (e) {
+        console.warn('[drmineword.github.io]: Error clearing custom background:', e);
+    }
+}
 
     // Determine proper background from config
     const determineBackground = async () => {
@@ -121,7 +162,7 @@
         }
 
         log('No matching background found.');
-        setBackground("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA6wAAAEsAQMAAAD92qz2AAAAA1BMVEUxMzheum/TAAAAPUlEQVR42uzAMQEAAADCIPunNsU+GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADEHgAA//+LdAABXx87XAAAAABJRU5ErkJggg==");
+        clearCustomBackground();
         return null;
     };
 
