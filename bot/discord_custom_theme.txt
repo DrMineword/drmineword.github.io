@@ -1,7 +1,20 @@
 (async function () {
     'use strict';
 
-    const CONFIG_URL = 'https://drmineword.github.io/bot/discord_custom_theme.json';
+    function getCacheBustedUrl(baseUrl) {
+    // Get current UNIX time and divide into 5-minute chunks
+    const now = Math.floor(Date.now() / 1000); // seconds
+    const chunk = Math.floor(now / (5 * 60));
+
+    // Convert to base64, then make it URL-safe
+    const b64 = btoa(chunk.toString()).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+
+    // Append to URL
+    return `${baseUrl}?jam=${encodeURIComponent(b64)}`;
+}
+
+
+    const CONFIG_URL = getCacheBustedUrl('https://drmineword.github.io/bot/discord_custom_theme.json');
     const log = (...args) => console.log('[drmineword.github.io]:', ...args);
     const warn = (...args) => console.warn('[drmineword.github.io]: ⚠️', ...args);
 
