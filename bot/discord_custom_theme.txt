@@ -121,7 +121,7 @@
         }
 
         log('No matching background found.');
-        setBackground("https://singlecolorimage.com/get/313338/5000x5000.png");
+        setBackground("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA6wAAAEsAQMAAAD92qz2AAAAA1BMVEUxMzheum/TAAAAPUlEQVR42uzAMQEAAADCIPunNsU+GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADEHgAA//+LdAABXx87XAAAAABJRU5ErkJggg==");
         return null;
     };
 
